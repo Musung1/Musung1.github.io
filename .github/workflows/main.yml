@@ -20,16 +20,22 @@ jobs:
 
       - name: 의존성 설치
         run: npm install
+        
+      - name: vuetify
+        run: npm install vuetify
+
+      - name: vue-router
+        run: npm install vue-router@4
 
       - name: Build Vue.js app
         run: |
           npm run build
           
-      # - name: access to secrets
-      #   run: |
-      #     echo "VUE_APP_API_KEY=${{ secrets.VUE_APP_API_KEY }}" >> .env
-      #   env:
-      #     VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
+      - name: access to secrets
+        run: |
+          echo "VUE_APP_API_KEY=${{ secrets.VUE_APP_API_KEY }}" >> .env
+        env:
+          VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
 
       - name: GitHub Pages에 배포
         uses: peaceiris/actions-gh-pages@v3
