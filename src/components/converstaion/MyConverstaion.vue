@@ -1,15 +1,19 @@
 <template>  
     <div class="scroll-card" ref="scrollContainer" >
-    <SysChatBubble message= "안녕! 나는 너의 이야기 친구 아띠야! 이야기도 읽었으니, 함께 즐거운 이야기를 나눠볼까?"/>
-    <v-chip v-if="!isStart" class="start-chip" @click="start">시작하기</v-chip>
-    <div v-for="(message,i) in messages.filter((element, index) => ![0,1,2].includes(index))" :key="i">
-        <SysChatBubble v-if="message.role === 'assistant'" v-bind:message= "message.content "/>
-        <MyChatBubble v-if="message.role === 'user'" v-bind:message= "message.content"/>
+        <SysChatBubble message= "안녕! 나는 너의 이야기 친구 아띠야! 이야기도 읽었으니, 함께 즐거운 이야기를 나눠볼까?"/>
+        <v-chip v-if="!isStart" class="start-chip" @click="start">시작하기</v-chip>
+        <div v-for="(message,i) in messages.filter((element, index) => ![0,1,2].includes(index))" :key="i">
+            <SysChatBubble v-if="message.role === 'assistant'" v-bind:message= "message.content "/>
+            <MyChatBubble v-if="message.role === 'user'" v-bind:message= "message.content"/>
+        </div>
+        <SysChatBubble v-if="load" message="..."/>
+    </div>  
+    <div class="command">
+        <input class="myInput" v-model="input" placeholder="">
+        <button class="myButton" type="button" @click="run" >
+            <img class="myButton" src="../../assets/messageBtn.png" >
+        </button>
     </div>
-    <SysChatBubble v-if="load" message="..."/>
-</div>  
-    <input v-model="input" placeholder="여기를 수정해보세요">
-    <button type="button" @click="run" > button </button>
 </template>
 <script>
     import MyChatBubble from './MyChatBubble.vue';
@@ -113,8 +117,8 @@
 </script>
 <style scoped>
 .scroll-card{
-    width:500px; height:300px;
-    background-color:#CF0;
+    width:1410px; height:870px;
+    background-color:#FEF8F1;
     margin: auto;
     overflow-y: auto;
     position: relative; 
@@ -125,5 +129,42 @@
         color: white;
         margin: 8px;
         float:right;
+        width: 339px !important;
+        height: 120px !important;
+        padding: 36px 78px !important;
+        background-color: #FF7C46 !important;
+        color: white !important; 
+        justify-content: center !important;
+        align-items: center !important; 
+        text-align: right !important;
+        font-family: Pretendard !important;
+        font-size: 40px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;  
     }
+.command {
+    background-color: #7669DF;
+    opacity: 0.8;
+    border-radius: 120px;
+    width: 1000px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    margin-left: 360px;
+    margin-bottom: 50px;
+}
+.myButton {
+    width: 68px;
+    height: 68px;
+}   
+
+.myInput {
+    width: 725px;
+    height: 96px;
+    font-size: 95px;
+    color: white;
+    margin-left: 80px;
+    margin-right: 48px;
+}
 </style>

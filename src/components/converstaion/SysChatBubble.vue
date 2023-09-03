@@ -1,29 +1,45 @@
 <template>
 <div class="sys-chip">
-    <img class ="conversation-img" src="@/assets/atti_big.png"/>
-    <v-card class="conversation-sys-chip pa-2">{{message}}</v-card>
+    <img class ="conversation-img" src="@/assets/monster.png"/>
+    <div class="sys-all">
+        <v-card class="conversation-sys-chip">{{message}}</v-card>
+    </div>
 </div>
 </template>
 <style>
 .conversation-img{
-    width: 50px;
-    height: 50px;
-    margin-bottom: auto;
-}
-.conversation-sys-chip{
-    /* height: 100px !important; */
-    background-color: #646464 !important; /* 선택된 chip 배경색 흰색 */
-    color: white !important; /* 선택된 chip 텍스트색 오렌지 */
-    border-radius: 20px!important;
-    text-align: left;
-    max-width:70%;
+    width: 120px;
+    height: 136px;
+    margin-top: 39px;
 }
 .sys-chip{
-    align-items: center;
     display:flex;
-    width:100%;
-
+    align-items: center;
 }
+.sys-all {
+    display:flex;
+    align-items: center;   
+}
+
+.conversation-sys-chip{
+    display:flex;
+    align-items: center;
+    text-align: left !important;
+	max-width: 1001px !important;
+	height: auto !important;
+	margin: 0px 46px !important;
+	border-radius: 68px 68px 68px 0px !important;
+	background-color: #646464 !important;
+	color: white !important;
+    font-family: Pretendard !important;
+	font-size: 40px !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	line-height: normal !important;
+    border: 50px solid #646464 !important;
+}
+
+
 </style>
 <script>
 export default{

@@ -89,7 +89,7 @@ export default{
 <style scoped>
   .intro {height: 1080px; background-image: url(".././assets/IntroBack.png");
     background-size: cover;}
-  .intro #introText {width: 1124px; height: 278px; margin-top: 443px;}
+  .intro #introText {width: 936px; margin-top: 311px;}
   
 
   .keyword {height: 933px; background-color: #FEF8F1;border: 0; margin: 0;}
@@ -110,9 +110,7 @@ margin-top: 32px; margin-bottom: 128px;}
 
   .talk {height: 1859px; background-color: #FEF8F1;border: 0; margin: 0;}
   .talk #talkText1 {width:910px; height: 80px; margin-top: 184px;}
-  .talk #talkText2 {width:817px; height: 72px; margin-top: 40px;}
+  .talk #talkText2 {width:817px; height: 72px; margin-top: 40px; margin-bottom: 138px;}
   
-MyChips {
-  background-color: #FEF8F1; /* 배경색을 투명하게 설정합니다. */
-}
+
 </style>
