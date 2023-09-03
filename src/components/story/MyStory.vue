@@ -57,7 +57,7 @@ export default{
     methods:{
         async run(){
             this.load = true
-            const messages = [new Message('user',`6-10세 아이들에세 {키워드}와 관련된 교훈이 담긴 재미있는 이야기를 들려주려고 해. 친구에게 말하듯이 “~했어” 혹은 “~해”라는 반말 문체를 써줄래? 근데 서론, 본론, 결론별로 3문장이 넘어가지 않게 말해줘. . return as a JSON object in this format: {”제목”:String, “서론”:String, “본론”:String, “결론”:String}`)];
+            const messages = [new Message('user',`6-10세 아이들에세 ${this.keyword}와 관련된 교훈이 담긴 재미있는 이야기를 들려주려고 해. 친구에게 말하듯이 “~했어” 혹은 “~해”라는 반말 문체를 써줄래? 근데 서론, 본론, 결론별로 3문장이 넘어가지 않게 말해줘. . return as a JSON object in this format: {”제목”:String, “서론”:String, “본론”:String, “결론”:String}`)];
             const completion = await openai.chat.completions.create({
             messages: messages,
             model: "gpt-3.5-turbo",
