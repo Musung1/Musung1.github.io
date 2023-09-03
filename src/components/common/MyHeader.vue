@@ -21,9 +21,8 @@ header {
 	text-align: center;
 	position: fixed;
 	height: 100px;
-	width: 99%;
+	width: 100%;
 	background-color: rgba(249, 241, 233, 0.8);
-	border-radius: 0px 0px 20px 20px;
 }
 
 header h1 {

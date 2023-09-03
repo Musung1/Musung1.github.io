@@ -81,7 +81,11 @@ export default{
         height: 300px;
         width: 300px;
     }
-    .story {height: 1300px; background-color: #FF7C46;border: 0; margin: 0;}
+    .story {
+        min-height: 1300px; 
+        background-color: #FF7C46;
+        border: 0; 
+        padding-bottom: 180px;}
     .story #storyStartText {
         color: var(--text-dark-400, rgba(255, 255, 255, 0.70));
         text-align: center;
@@ -92,6 +96,25 @@ export default{
         line-height: normal;
         margin-top: 32px; margin-bottom: 60px;
     }    
-    .story #storyText {width: 650px; margin-top: 184px;}
-    .story .rectangle {width: 1100px; height: 230px; background-color: #FEF8F1; margin: auto; margin-top: 60px; border-radius: 70px;}
+    .story #storyText {
+        width: 650px; 
+        margin-top: 184px;
+    }
+    .story .rectangle 
+    {
+        max-width: 1170px; 
+        background-color: #FEF8F1; 
+        margin: auto;
+        margin-top: 60px; 
+        padding: 65px 120px 65px 120px;
+        border-color: red;
+        border-radius: 70px;
+        color: #373737;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 56px;
+    }
 </style>
