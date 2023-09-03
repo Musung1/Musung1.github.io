@@ -1,0 +1,38 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # 또는 원하는 브랜치로 변경
+
+jobs:
+ build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 코드
+        uses: actions/checkout@v2
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: 의존성 설치
+        run: npm install
+
+      - name: Build Vue.js app
+        run: |
+          npm run build
+          
+      - name: access to secrets
+        run: |
+          echo "VUE_APP_API_KEY=${{ secrets.VUE_APP_API_KEY }}" >> .env
+        env:
+          VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
+
+      - name: GitHub Pages에 배포
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          publish_dir: ./dist  # Vue.js 프로젝트의 빌드된 파일 경로로 변경
