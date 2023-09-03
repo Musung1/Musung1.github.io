@@ -81,7 +81,7 @@ export default{
         height: 300px;
         width: 300px;
     }
-    .story {height: 3000px; background-color: #FF7C46;border: 0; margin: 0;}
+    .story {height: 1300px; background-color: #FF7C46;border: 0; margin: 0;}
     .story #storyStartText {
         color: var(--text-dark-400, rgba(255, 255, 255, 0.70));
         text-align: center;
