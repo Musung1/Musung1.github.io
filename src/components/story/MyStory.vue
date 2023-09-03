@@ -1,6 +1,6 @@
 <template>
 <div class="story">
-    <img id="storyText" src="/assets/StoryText.png">
+    <img id="storyText" src="../../assets/StoryText.png">
     <h1 v-if="load"> 생성중 </h1>
     <p id="storyStartText">아띠가 {{ result.제목}} 이야기를 들려줄게요.</p>
     <div class="rectangle"> {{result.서론}}</div>
@@ -85,6 +85,6 @@ export default{
         line-height: normal;
         margin-top: 32px; margin-bottom: 128px;
     }    
-    .story #storyText {width: 684px; height: 80px; margin-top: 184px;}
+    .story #storyText {width: 842px; margin-top: 184px;}
     .story .rectangle {width: 1410px; height: 297px; background-color: #FEF8F1; margin: auto; margin-top: 60px; border-radius: 60px;}
 </style>
