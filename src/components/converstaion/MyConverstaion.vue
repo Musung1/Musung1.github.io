@@ -2,7 +2,7 @@
     <div class="scroll-card" ref="scrollContainer" >
         <SysChatBubble message= "안녕! 나는 너의 이야기 친구 아띠야! 이야기도 읽었으니, 함께 즐거운 이야기를 나눠볼까?"/>
         <v-chip v-if="!isStart" class="start-chip" @click="start">시작하기</v-chip>
-        <div v-for="(message,i) in messages.filter((element, index) => ![0,1,2].includes(index))" :key="i">
+        <div v-for="(message,i) in outputMessages" :key="i">
             <SysChatBubble v-if="message.role === 'assistant'" v-bind:message= "message.content "/>
             <MyChatBubble v-if="message.role === 'user'" v-bind:message= "message.content"/>
         </div>
@@ -43,6 +43,7 @@
     },
     data(){
         return{
+            outputMessages:[],
             messages:[],
             input:"",
             load: false,
@@ -81,7 +82,7 @@
         async start(){
             this.isStart = true
             this.load = true
-            const msg = `6살 아이와 너는 이 이야기로 하브루타를 할거야. 너의 역할은 또래의 6살 아이야. 대답은 친구에게 말하듯이 "~했어"혹은 "~해"라는 반말체를 써.  너가 먼저 이 이야기에 대한 질문으로 시작해 return as a JSON object in this format:{"질문":String}`
+            const msg = `6살 아이와 너는 이 이야기로 하브루타를 할거야. 이야기를 주고받아 보는거지. 너의 역할은 또래의 6살 아이야. 대답은 친구에게 말하듯이 "~했어"혹은 "~해"라는 반말체를 써.  너가 먼저 이 이야기와 관련해서 6-10세 아이가 생각해보고 대답할 수 있을 정도의 질문으로 시작해 return as a JSON object in this format:{"질문":String}`
             this.messages.push(new Message(ROLE_USER,msg))
             const completion = await openai.chat.completions.create({
             messages: this.messages,
@@ -91,6 +92,7 @@
             try {
                 const jsonObject = JSON.parse(jsonString);
                 this.messages.push(new Message("assistant",jsonObject.질문))
+                this.outputMessages.push(new Message("assistant",jsonObject.질문))
             } catch (error) {
                 console.error('JSON 파싱 중 오류 발생:', error);
             }
@@ -99,7 +101,9 @@
             },
         async run(){
             this.load = true
-            this.messages.push(new Message(ROLE_USER,this.input))
+            const input1 = this.input + `너는 어떻게 생각해? 대답은 친구에게 말하듯이 "~했어"혹은 "~해"라는 반말 문체를 써주는거 잊지마. `;
+            this.outputMessages.push(new Message(ROLE_USER,this.input));
+            this.messages.push(new Message(ROLE_USER,input1));
 
 
             const completion = await openai.chat.completions.create({
@@ -110,6 +114,7 @@
             this.result = completion.choices[0].message.content
 
             this.messages.push(new Message(ROLE_ASSISTANT,this.result))
+            this.outputMessages.push(new Message(ROLE_ASSISTANT,this.result))
             this.load = false
         },
     },

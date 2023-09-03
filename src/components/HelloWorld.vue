@@ -68,7 +68,7 @@ export default{
         // 컴포넌트가 화면에 나타났을 때 호출할 함수를 여기에 호출합니다.
         this.callFunctionWhenComponentVisible();
         // 관찰 중지 (원하는 동작을 수행한 후에 관찰 중지할 수 있습니다.)
-        //this.observer.unobserve(entry.target);
+        this.observer.unobserve(entry.target);
       }
     },
     callFunctionWhenComponentVisible() {
@@ -101,7 +101,7 @@ export default{
         const comp = document.getElementById("myConversation");
         if (comp) {
           window.scrollTo({
-            top: comp.scrollHeight + 900,
+            top: comp.scrollHeight + 1000,
             block: 'start',
             behavior:'smooth',
           });
