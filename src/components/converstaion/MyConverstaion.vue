@@ -26,7 +26,7 @@
     const ROLE_ASSISTANT = 'assistant';
     //onst ROLE_SYSTEM = 'system';
     const ROLE_USER = 'user';
-    const apiKey = process.env.VUE_APP_API_KEY
+    const apiKey = "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"
     const openai = new OpenAI({
         apiKey: apiKey,
         dangerouslyAllowBrowser: true,

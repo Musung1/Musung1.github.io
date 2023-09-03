@@ -1,7 +1,4 @@
 <template>
-  <h1>hello world</h1>
-</template>
-<!-- <template>
   <div id="body">
     <div id="intro" class="intro">
       <div>
@@ -148,4 +145,4 @@ export default{
   .talk #talkText2 {height: 52px; margin-top: 40px; margin-bottom: 138px;}
   
 
-</style> -->
+</style>
