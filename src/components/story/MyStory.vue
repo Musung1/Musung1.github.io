@@ -102,19 +102,19 @@ export default{
     }
     .story .rectangle 
     {
-        max-width: 1170px; 
+        max-width: 970px; 
         background-color: #FEF8F1; 
         margin: auto;
-        margin-top: 60px; 
+        margin-top: 40px; 
         padding: 65px 120px 65px 120px;
         border-color: red;
-        border-radius: 70px;
+        border-radius: 45px;
         color: #373737;
         text-align: center;
         font-family: Pretendard;
-        font-size: 36px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 600;
-        line-height: 56px;
+        line-height: 48px;
     }
 </style>

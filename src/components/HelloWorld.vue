@@ -14,7 +14,7 @@
     <MyStoryVue id= "myStory" @send-data="getMessages" :keyword="keyword" @scroll="myScroll"/>
     <button id="scrollButton" @click="scrollToMyConversation">스크롤하기</button>
     <div id= "myConversation" class="talk">
-      <img id="talkText1" src="../assets/TalkText1.png">
+      <div><img id="talkText1" src="../assets/TalkText1.png"></div>
       <img id="talkText2" src="../assets/TalkText2.png">
       <MyConversation :value="messages"/>
       <ActionChip @send-data="getIsEnd"/>
@@ -108,8 +108,8 @@ export default{
   .keyword #keywordText2 {width:580px; height: 55px; margin-top: 40px;}
 
   .talk {height: 1859px; background-color: #FEF8F1;border: 0; margin: 0;}
-  .talk #talkText1 {width:910px; height: 80px; margin-top: 184px;}
-  .talk #talkText2 {width:817px; height: 72px; margin-top: 40px; margin-bottom: 138px;}
+  .talk #talkText1 {height: 55px; margin-top: 184px;}
+  .talk #talkText2 {height: 52px; margin-top: 40px; margin-bottom: 138px;}
   
 
 </style>

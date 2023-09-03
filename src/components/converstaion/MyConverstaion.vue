@@ -128,9 +128,10 @@
         border-radius: 120px;
         color: white;
         margin: 8px;
+        margin-right: 100px;
         float:right;
-        width: 339px !important;
-        height: 120px !important;
+        width: 289px !important;
+        height: 100px !important;
         padding: 36px 78px !important;
         background-color: #FF7C46 !important;
         color: white !important; 
@@ -138,7 +139,7 @@
         align-items: center !important; 
         text-align: right !important;
         font-family: Pretendard !important;
-        font-size: 40px !important;
+        font-size: 30px !important;
         font-style: normal !important;
         font-weight: 700 !important;
         line-height: normal !important;  
@@ -163,7 +164,7 @@
 .myInput {
     width: 725px;
     height: 96px;
-    font-size: 95px;
+    font-size: 30px;
     color: white;
     margin-left: 80px;
     margin-right: 48px;
