@@ -1,10 +1,6 @@
 <template>
-  <v-row justify="space-around">
-    <v-col cols="auto">
-      <v-sheet
-        class="py-4 px-1"
-      >
-        <v-chip-group
+  <div class="my-container">
+    <v-chip-group
           v-model="selection"
           mandatory
         >
@@ -19,20 +15,32 @@
             {{ tag }}
           </v-chip>
         </v-chip-group>
-      </v-sheet>
-    </v-col>
-  </v-row>
+  </div>
 </template>
 <style scoped>
+.my-container{
+  max-width: 1225px;
+  margin: 10px !important;
+  
+}
 .custom-selected-chip {
-  background-color: orange; /* 선택된 chip 배경색 흰색 */
+  background-color: #FF7C46; /* 선택된 chip 배경색 흰색 */
+  border: 2px solid #FF7C46; /* 선택된 chip 테두리 색 오렌지 */
   color:  white; /* 선택된 chip 텍스트색 오렌지 */
+  font-size: 36px !important;
+  padding-left: 72px !important; padding-right: 72px !important; padding-top: 32px !important; padding-bottom: 32px !important;
 }
 
 .custom-chip {
   background-color: white; /* 선택된 chip 배경색 흰색 */
   border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
-  color: orange; /* 선택된 chip 텍스트색 오렌지 */
+
+  color: #FFB547;
+  font-size: 36px !important;
+  padding-left: 72px !important; padding-right: 72px !important; padding-top: 32px !important; padding-bottom: 32px !important;
+  font-family: Pretendard;
+  font-weight: 700;
+  word-wrap: break-word
 }
 </style>
 

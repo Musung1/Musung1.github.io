@@ -10,8 +10,9 @@
 </template>
 <script>
     import OpenAI from 'openai'
+    const apiKey = process.env.VUE_APP_API_KEY
     const openai = new OpenAI({
-        apiKey: "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", // defaults to process.env["OPENAI_API_KEY"]
+        apiKey: apiKey, // defaults to process.env["OPENAI_API_KEY"]
         dangerouslyAllowBrowser: true,
     });
     class Story{
