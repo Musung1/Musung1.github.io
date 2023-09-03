@@ -148,23 +148,23 @@
     background-color: #7669DF;
     opacity: 0.8;
     border-radius: 120px;
-    width: 1000px;
-    height: 160px;
+    width: 800px;
+    height: 120px;
     display: flex;
     align-items: center;
-    margin-left: 360px;
+    margin: auto;
     margin-bottom: 50px;
     margin-top: 50px;
 }
 .myButton {
-    width: 68px;
-    height: 68px;
+    width: 48px;
+    height: 48px;
 }   
 
 .myInput {
-    width: 725px;
-    height: 96px;
-    font-size: 30px;
+    width: 552px;
+    height: 80px;
+    font-size: 35px;
     color: white;
     margin-left: 80px;
     margin-right: 48px;
