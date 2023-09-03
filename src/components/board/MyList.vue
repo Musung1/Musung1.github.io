@@ -182,7 +182,7 @@ export default {
 }
 
 .selected-conversation {
-	background-color: #FF7C46 !important;
+	background-color: #7669DF !important;
 }
 .selected-conversation .conversation-title {
 	color: white;
@@ -195,10 +195,17 @@ export default {
   padding: 10px;
 	width: 330px;
 	height: 120px;
+
 	border-radius: 999px;
 	margin-bottom: 24px;
   background-color: #FFFFFF;
   cursor: pointer;
+	display: flex;
+  align-items: center;
+}
+
+.conversation-info {
+	margin: 32px 40px;
 }
 
 .conversation-title {
@@ -208,9 +215,8 @@ export default {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	margin-top: 32px;
-	margin-left: 40px;
 	text-align: left;
+	margin-bottom: 8px;
 }
 
 .conversation-date {
@@ -220,8 +226,6 @@ export default {
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
-	margin-top: 8px;
-	margin-left: 40px;
 	text-align: left;
 }
 
@@ -266,24 +270,23 @@ export default {
 .my-message-bubble {
 	text-align: right; /* 나의 말한 내용 오른쪽 정렬 */
 	margin-left: 250px;
-	width: 481px;
-	height: 84px;
-	padding: 22px 45px;
+	width: 572px;
+	height: 128px;
+	padding: 22px 46px;
 	border-radius: 68px;
 	background-color: white;
-	margin-bottom: 24px;
+	border: 3px solid #FFB547;
 }
 
 .your-message-bubble {
 	text-align: left; /* 상대방이 말한 내용 왼쪽 정렬 */
-	width: 481px;
-	height: 56px;
+	width: 572px;
+	height: 100px;
+	margin: 22px 46px;
+	padding: 22px 46px;
+	border-radius: 68px 68px 68px 0px;
 	background-color: #646464;
 	color: white;
-	padding: 22px 46px;
-	border-radius: 68px;
-	margin-bottom: 24px;
-	margin-left: 10px;
 }
 
 .user-icon {

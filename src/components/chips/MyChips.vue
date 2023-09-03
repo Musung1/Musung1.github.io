@@ -17,7 +17,9 @@
         </v-chip-group>
   </div>
 </template>
+
 <style scoped>
+
 .my-container{
   max-width: 1225px;
   margin: 10px !important;
@@ -32,7 +34,6 @@
 }
 
 .custom-chip {
-  background-color: white; /* 선택된 chip 배경색 흰색 */
   border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
 
   color: #FFB547;
