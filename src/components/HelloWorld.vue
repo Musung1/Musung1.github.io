@@ -17,7 +17,6 @@
       <div><img id="talkText1" src="../assets/TalkText1.png"></div>
       <img id="talkText2" src="../assets/TalkText2.png">
       <MyConversation :value="messages"/>
-      <ActionChip @send-data="getIsEnd"/>
     </div>
 
   </div>
@@ -27,7 +26,6 @@
 import MyChips from './chips/MyChips'
 import MyStoryVue from './story/MyStory.vue'
 import MyConversation from './converstaion/MyConverstaion.vue';
-import ActionChip from './converstaion/ActionChip.vue'
 
 export default{
   mounted() {
@@ -123,7 +121,6 @@ export default{
         MyChips,
         MyStoryVue,
         MyConversation,
-        ActionChip,
     },
 }
 </script>

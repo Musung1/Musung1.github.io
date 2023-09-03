@@ -8,11 +8,15 @@
         </div>
         <SysChatBubble v-if="load" message="..."/>
     </div>  
-    <div class="command">
+    <div v-if="isStart" class="command">
         <input class="myInput" v-model="input" placeholder="">
         <button class="myButton" type="button" @click="run" >
             <img class="myButton" src="../../assets/messageBtn.png" >
         </button>
+    </div>
+    <div v-if="isStart">
+        <v-chip variant="text" class="end-chip" @click="next">다음 질문으로 넘어가기</v-chip>
+        <v-chip variant="text" class="next-chip" @click="end">대화 끝내기</v-chip>
     </div>
 </template>
 <script>
@@ -72,6 +76,31 @@
         }
     },
     methods:{
+            async next(){
+            this.load = true
+            const msg = `return as a JSON object in this format:{"질문":String} 꼭 대답을 json 양식으로 해. 이제 다음 질문으로 넘어가보자. 이야기와 관련해서 6-10세 아이가 생각해보고 대답할 수 있을 정도의 또 다른 질문을 하나만 해줘. 대답은 친구에게 말하듯이 "~했어"혹은 "~해"라는 반말 문체를 써주는거 잊지마. 대답은 json 타입으로 해 json 양식은 다음과 같아{"질문":String}`
+            this.messages.push(new Message(ROLE_USER,msg))
+            const completion = await openai.chat.completions.create({
+            messages: this.messages,
+            model: "gpt-3.5-turbo",
+            });
+            const jsonString = completion.choices[0].message.content
+            try {
+                const jsonObject = JSON.parse(jsonString);
+                this.messages.push(new Message("assistant",jsonObject.질문))
+                this.outputMessages.push(new Message("assistant",jsonObject.질문))
+            } catch (error) {
+                console.error('JSON 파싱 중 오류 발생:', error);
+            }        
+            this.load = false
+            },
+            end(){
+                console.log("hellowww");
+                window.scrollTo({
+                top: 0, // 스크롤할 위치의 Y 좌표를 0으로 설정합니다.
+                behavior: 'smooth' // 부드러운 스크롤 효과를 적용합니다.
+                });
+            },
         scrollToBottom() {
             const scrollContainer = this.$refs.scrollContainer;
             scrollContainer.scrollTop = scrollContainer.scrollHeight;
@@ -105,6 +134,7 @@
             this.outputMessages.push(new Message(ROLE_USER,this.input));
             this.messages.push(new Message(ROLE_USER,input1));
 
+            this.input = ""
 
             const completion = await openai.chat.completions.create({
             messages: this.messages,
@@ -121,8 +151,38 @@
 }
 </script>
 <style scoped>
+.end-chip{
+    background-color: #FFB547 !important; 
+    color: white !important; 
+    display: inline-flex;
+
+    padding: 46px 61px 46px 60px !important;
+    justify-content: center !important;
+    align-items: center !important; 
+    text-align: right !important;
+    font-family: Pretendard !important;
+    font-size: 30px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;  
+    margin-right: 40px !important;  
+}
+.next-chip{
+
+    padding: 46px 78px !important;
+    background-color: #FF7C46 !important;
+    color: white !important; 
+    justify-content: center !important;
+    align-items: center !important; 
+    text-align: right !important;
+    font-family: Pretendard !important;
+    font-size: 30px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;   
+}
 .scroll-card{
-    width:1410px; height:870px;
+    width:1410px; max-height:500px;
     background-color:#FEF8F1;
     margin: auto;
     overflow-y: auto;
@@ -169,7 +229,7 @@
 .myInput {
     width: 552px;
     height: 80px;
-    font-size: 35px;
+    font-size: 32px;
     color: white;
     margin-left: 80px;
     margin-right: 48px;

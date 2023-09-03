@@ -3,7 +3,7 @@
 		<h1><a href="#" class="logo"><img alt="Vue logo" src="../../assets/logo.png" height="65"></a></h1>
 		<div class="menuWrap">
 			<ul class="menu">
-				<li><router-link to="/">홈</router-link></li>
+				<li id="homeLi"><router-link to="/">홈</router-link></li>
 				<li><router-link to="/board/myList">아띠와 나눈 대화들</router-link></li>
 			</ul>
 		</div>
@@ -59,5 +59,9 @@ a {
 	text-decoration: none;
 	color: #333;
 	
+}
+
+#homeLi {
+	opacity: 0;
 }
 </style>

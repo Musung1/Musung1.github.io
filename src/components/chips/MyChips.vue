@@ -68,7 +68,7 @@
   export default {
     
     data: () => ({
-      selection:"예의",
+      selection:"",
       tags: [
         '예의',
         '환경 오염',

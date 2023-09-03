@@ -14,16 +14,15 @@
     min-width: 200px !important;
 	max-width: 581px !important;
 	margin: 22px 46px !important;
-	padding: 22px 46px !important;
+	padding: 40px 80px !important;
 	border-radius: 120px !important;
 	background-color: white !important;
 	color: black !important;
     font-family: Pretendard !important;
-	font-size: 20px !important;
+	font-size: 32px !important;
 	font-style: normal !important;
 	font-weight: 700 !important;
 	line-height: normal !important;
-    border: 6px solid #FFB547 !important;
 }
 
 
