@@ -24,43 +24,43 @@
 
 <style scoped>
 .my-container{
-  max-width: 1330px;
+  max-width: 1000px;
   margin: 0 auto !important;
   display: flex !important;
   justify-content: center !important;
   text-align: center !important;
-  padding-top: 60px !important; 
+  padding-top:
+   60px !important; 
+}
+.custom-chip {
+  border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
+  color: #FFB547;
+  font-size: 30px !important;
+  padding-left: 45px !important; padding-right: 45px !important; padding-top: 35px !important; padding-bottom: 35px !important;
+  font-family: Pretendard;
+  font-weight: 600;
+  word-wrap: break-word;
+  margin: 10px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 .my-custom-chip{
   color:  rgba(55.25, 55.25, 55.25, 0.50);; /* 선택된 chip 텍스트색 오렌지 */
   border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
-  font-size: 36px !important;
-  padding-left: 72px !important; padding-right: 72px !important; padding-top: 36px !important; padding-bottom: 32px !important;
+  font-size: 30px !important;
+  padding-left: 45px !important; padding-right: 45px !important; padding-top: 35px !important; padding-bottom: 35px !important;
   font-family: Pretendard;
   font-weight: 700;
   word-wrap: break-word;
-  margin: 20px !important;
+  margin: 10px !important;
 }
 .custom-selected-chip {
   background-color: #FF7C46; /* 선택된 chip 배경색 흰색 */
   border: 2px solid #FF7C46; /* 선택된 chip 테두리 색 오렌지 */
   color:  white; /* 선택된 chip 텍스트색 오렌지 */
-  font-size: 36px !important;
-  padding-left: 72px !important; padding-right: 72px !important; padding-top: 36px !important; padding-bottom: 32px !important;
-  margin: 20px !important;
-}
-
-.custom-chip {
-  border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
-  color: #FFB547;
-  font-size: 36px !important;
-  padding-left: 72px !important; padding-right: 72px !important; padding-top: 36px !important; padding-bottom: 32px !important;
-  font-family: Pretendard;
-  font-weight: 700;
-  word-wrap: break-word;
-  margin: 20px !important;
-  display: flex !important;
-  align-items: center !important;
+  font-size: 30px !important;
+  padding-left: 45px !important; padding-right: 45px !important; padding-top: 35px !important; padding-bottom: 35px !important;
+  margin: 10px !important;
 }
 </style>
 

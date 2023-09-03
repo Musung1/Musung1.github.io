@@ -7,11 +7,11 @@
       <img src="../assets/scroll.png" id="scrollButton" @click="scrollToMyScroll" class="scroll">
     </div>
     <div id="myScroll" class="keyword">
-      <div><img id="keywordText1" src="../assets/KeywordText1.png"></div>
+      <div><img id="keywordText1" src="../assets/KeywordText1.png" ></div>
       <img id="keywordText2" src="../assets/KeywordText2.png">
       <MyChips @send-data="getKeyword"/>
     </div>
-    <MyStoryVue id= "myStory" @send-data="getMessages" :keyword="keyword"/>
+    <MyStoryVue id= "myStory" @send-data="getMessages" :keyword="keyword" @scroll="myScroll"/>
     <button id="scrollButton" @click="scrollToMyConversation">스크롤하기</button>
     <div id= "myConversation" class="talk">
       <img id="talkText1" src="../assets/TalkText1.png">
@@ -43,6 +43,9 @@ export default{
       },
     },
     methods:{
+      myScroll(){
+        console.log("hello");
+      },
       scrollToIntro(){
         const comp = document.getElementById("intro");
         if (comp) {
@@ -50,6 +53,7 @@ export default{
         }
       },
       scrollToMyScroll(){
+        console.log("hello world");
         const comp = document.getElementById("myScroll");
         if (comp) {
           comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
@@ -90,20 +94,20 @@ export default{
 
 <style scoped>
   .scroll{
-    width:85px !important;
-    height:70px !important;
-    margin-top:300px !important;
+    width:75px !important;
+    height:60px !important;
+    margin-top:200px !important;
   }
-  .intro {height: 1080px; background-image: url(".././assets/IntroBack.png");
+  .intro { background-image: url(".././assets/IntroBack.png");
     background-size: cover;}
-  .intro #introText {width: 1124px; margin-top: 311px;}
+  .intro #introText {width: 700px; margin-top: 240px;}
   
 
-  .keyword {height: 933px; background-color: #FEF8F1;border: 0; margin: 0;}
-  .keyword #keywordText1 {width:859px; height: 80px; margin-top: 184px;}
-  .keyword #keywordText2 {width:768px; height: 72px; margin-top: 40px;}
+  .keyword {height: 700px; background-color: #FEF8F1;border: 0; margin: 0;}
+  .keyword #keywordText1 {width:650px; height: 55px; margin-top: 184px;}
+  .keyword #keywordText2 {width:580px; height: 55px; margin-top: 40px;}
   
-  .story {height: 1677px; background-color: #FF7C46;border: 0; margin: 0;}
+  .story {height: 1000px; background-color: #FF7C46;border: 0; margin: 0;}
   .story #storyStartText {color: var(--text-dark-400, rgba(255, 255, 255, 0.70));
 text-align: center;
 font-family: Pretendard;
@@ -112,7 +116,7 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 margin-top: 32px; margin-bottom: 128px;}
-  .story #storyText {width: 684px; height: 80px; margin-top: 184px;}
+  .story #storyText {width: 300px; height: 60px; margin-top: 184px;}
   .story .rectangle {width: 1410px; height: 297px; background-color: #FEF8F1; margin: auto; margin-top: 60px; border-radius: 60px;}
 
   .talk {height: 1859px; background-color: #FEF8F1;border: 0; margin: 0;}
