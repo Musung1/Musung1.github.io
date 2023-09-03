@@ -1,9 +1,11 @@
 <template>
   <div id="body">
     <div id="intro" class="intro">
-      <img id="introText" src="../assets/IntroText.png">
+      <div>
+        <img id="introText" src="../assets/IntroText.png">
+      </div>
+      <img src="../assets/scroll.png" id="scrollButton" @click="scrollToMyScroll" class="scroll">
     </div>
-    <button id="scrollButton" @click="scrollToMyScroll">스크롤하기</button>
     <div id="myScroll" class="keyword">
       <div><img id="keywordText1" src="../assets/KeywordText1.png"></div>
       <img id="keywordText2" src="../assets/KeywordText2.png">
@@ -87,6 +89,11 @@ export default{
 </script>
 
 <style scoped>
+  .scroll{
+    width:85px !important;
+    height:70px !important;
+    margin-top:300px !important;
+  }
   .intro {height: 1080px; background-image: url(".././assets/IntroBack.png");
     background-size: cover;}
   .intro #introText {width: 1124px; height: 278px; margin-top: 443px;}
