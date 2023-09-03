@@ -20,7 +20,7 @@ export default {
 header {
 	text-align: center;
 	position: fixed;
-	height: 120px;
+	height: 100px;
 	width: 99%;
 	background-color: rgba(249, 241, 233, 0.8);
 	border-radius: 0px 0px 20px 20px;
