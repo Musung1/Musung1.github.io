@@ -23,14 +23,15 @@
     </v-col>
   </v-row>
 </template>
+
 <style scoped>
+* {background-color: #FEF8F1;}
 .custom-selected-chip {
   background-color: orange; /* 선택된 chip 배경색 흰색 */
   color:  white; /* 선택된 chip 텍스트색 오렌지 */
 }
 
 .custom-chip {
-  background-color: white; /* 선택된 chip 배경색 흰색 */
   border: 2px solid orange; /* 선택된 chip 테두리 색 오렌지 */
   color: orange; /* 선택된 chip 텍스트색 오렌지 */
 }

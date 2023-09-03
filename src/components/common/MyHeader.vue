@@ -4,7 +4,7 @@
 		<div class="menuWrap">
 			<ul class="menu">
 				<li><router-link to="/">홈</router-link></li>
-				<li><router-link to="/board/myList">아띠와의 대화 기록</router-link></li>
+				<li><router-link to="/board/myList">아띠와 나눈 대화들</router-link></li>
 			</ul>
 		</div>
 	</header>
@@ -28,7 +28,7 @@ header {
 
 header h1 {
 	position: absolute;
-	top: 0px;
+	top: 27px;
 	left: 160px;
 }
 
@@ -45,7 +45,7 @@ header ul.menu {
 
 header ul.menu li {
 	float: left;
-	padding: 20px;
+	padding: 45px 20px 38px 20px;
 	list-style: none;
 	font-family: Pretendard;
 	font-size: 24px;
