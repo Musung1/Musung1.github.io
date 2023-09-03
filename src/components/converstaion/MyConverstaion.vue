@@ -1,8 +1,7 @@
 <template>  
-    <OpacityContainer v-if="isScroll" @scroll="scrollFuc"/>
     <div class="scroll-card" ref="scrollContainer" >
     <SysChatBubble message= "안녕! 나는 너의 이야기 친구 아띠야! 이야기도 읽었으니, 함께 즐거운 이야기를 나눠볼까?"/>
-    <v-chip class="start-chip" @click="start">시작하기</v-chip>
+    <v-chip v-if="!isStart" class="start-chip" @click="start">시작하기</v-chip>
     <div v-for="(message,i) in messages.filter((element, index) => ![0,1,2].includes(index))" :key="i">
         <SysChatBubble v-if="message.role === 'assistant'" v-bind:message= "message.content "/>
         <MyChatBubble v-if="message.role === 'user'" v-bind:message= "message.content"/>
@@ -15,13 +14,13 @@
 <script>
     import MyChatBubble from './MyChatBubble.vue';
     import SysChatBubble from './SysChatBubble.vue';
-    import OpacityContainer from './OpacityContainer.vue'
     import OpenAI from 'openai';
     const ROLE_ASSISTANT = 'assistant';
     //onst ROLE_SYSTEM = 'system';
     const ROLE_USER = 'user';
+    const apiKey = process.env.VUE_APP_API_KEY
     const openai = new OpenAI({
-        apiKey: "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",
+        apiKey: apiKey,
         dangerouslyAllowBrowser: true,
     });
     class Message {
@@ -37,7 +36,6 @@
     components:{
         MyChatBubble,
         SysChatBubble,
-        OpacityContainer,
     },
     data(){
         return{
@@ -77,8 +75,9 @@
             }
         },
         async start(){
+            this.isStart = true
             this.load = true
-            const msg = `6살 아이와 너는 이 이야기로 하브루타를 할거야. 너의 역할은 또래의 6살 아이야. 너가 먼저 이 이야기에 대한 질문으로 시작해 return as a JSON object in this format:{"질문":String}`
+            const msg = `6살 아이와 너는 이 이야기로 하브루타를 할거야. 너의 역할은 또래의 6살 아이야. 대답은 친구에게 말하듯이 "~했어"혹은 "~해"라는 반말체를 써.  너가 먼저 이 이야기에 대한 질문으로 시작해 return as a JSON object in this format:{"질문":String}`
             this.messages.push(new Message(ROLE_USER,msg))
             const completion = await openai.chat.completions.create({
             messages: this.messages,

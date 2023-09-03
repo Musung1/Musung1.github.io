@@ -1,18 +1,21 @@
 <template>
   <div id="body">
-    <div class="intro">
+    <div id="intro" class="intro">
       <img id="introText" src="../assets/IntroText.png">
     </div>
-    <div class="keyword">
+    <button id="scrollButton" @click="scrollToMyScroll">스크롤하기</button>
+    <div id="myScroll" class="keyword">
       <div><img id="keywordText1" src="../assets/KeywordText1.png"></div>
       <img id="keywordText2" src="../assets/KeywordText2.png">
       <MyChips @send-data="getKeyword"/>
     </div>
-    <MyStoryVue @send-data="getMessages" :keyword="keyword"/>
-    <div class="talk">
+    <MyStoryVue id= "myStory" @send-data="getMessages" :keyword="keyword"/>
+    <button id="scrollButton" @click="scrollToMyConversation">스크롤하기</button>
+    <div id= "myConversation" class="talk">
       <img id="talkText1" src="../assets/TalkText1.png">
       <img id="talkText2" src="../assets/TalkText2.png">
       <MyConversation :value="messages"/>
+      <ActionChip @send-data="getIsEnd"/>
     </div>
 
   </div>
@@ -22,26 +25,63 @@
 import MyChips from './chips/MyChips'
 import MyStoryVue from './story/MyStory.vue'
 import MyConversation from './converstaion/MyConverstaion.vue';
+import ActionChip from './converstaion/ActionChip.vue'
 
 export default{
     data(){
         return{
             keyword:"",
             messages:{},
+            isEnd: false
         }
     },
+    watch:{
+      keyword(){
+        this.scrollToMyStory()
+      },
+    },
     methods:{
+      scrollToIntro(){
+        const comp = document.getElementById("intro");
+        if (comp) {
+          comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
+        }
+      },
+      scrollToMyScroll(){
+        const comp = document.getElementById("myScroll");
+        if (comp) {
+          comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
+        }
+      },
+      scrollToMyStory(){
+        const comp = document.getElementById("myStory");
+        if (comp) {
+          comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
+        }
+      },
+      scrollToMyConversation(){
+        const comp = document.getElementById("myConversation");
+        if (comp) {
+          comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
+        }
+      },
         getKeyword(data){
             this.keyword = data
         },
         getMessages(data){
             this.messages = data;
+        },
+        getIsEnd(data){
+          console.log("llll");
+          this.isEnd = data;
+          this.scrollToIntro()
         }
     },
     components:{
         MyChips,
         MyStoryVue,
         MyConversation,
+        ActionChip,
     },
 }
 </script>
