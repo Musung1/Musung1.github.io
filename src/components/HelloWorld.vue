@@ -6,23 +6,44 @@
     <div class="keyword">
       <div><img id="keywordText1" src="../assets/KeywordText1.png"></div>
       <img id="keywordText2" src="../assets/KeywordText2.png">
+      <MyChips @send-data="getKeyword"/>
     </div>
-    <div class="story">
-      <img id="storyText" src="../assets/StoryText.png">
-      <p id="storyStartText">아띠가 [피자만 좋아하는 한석이] 이야기를 들려줄게요.</p>
-      <div class="rectangle"> </div>
-      <div class="rectangle"> </div>
-      <div class="rectangle"> </div>
-    </div>
+    <MyStoryVue @send-data="getMessages" :keyword="keyword"/>
     <div class="talk">
       <img id="talkText1" src="../assets/TalkText1.png">
       <img id="talkText2" src="../assets/TalkText2.png">
+      <MyConversation :value="messages"/>
     </div>
+
   </div>
 </template>
 
 <script>
+import MyChips from './chips/MyChips'
+import MyStoryVue from './story/MyStory.vue'
+import MyConversation from './converstaion/MyConverstaion.vue';
 
+export default{
+    data(){
+        return{
+            keyword:"",
+            messages:{},
+        }
+    },
+    methods:{
+        getKeyword(data){
+            this.keyword = data
+        },
+        getMessages(data){
+            this.messages = data;
+        }
+    },
+    components:{
+        MyChips,
+        MyStoryVue,
+        MyConversation,
+    },
+}
 </script>
 
 <style scoped>
