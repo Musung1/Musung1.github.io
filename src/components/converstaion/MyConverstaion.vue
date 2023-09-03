@@ -153,6 +153,7 @@
     align-items: center;
     margin-left: 360px;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 .myButton {
     width: 68px;
