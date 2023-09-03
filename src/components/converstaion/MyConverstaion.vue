@@ -113,7 +113,7 @@
 </script>
 <style scoped>
 .scroll-card{
-    width:500px; height:300px;
+    width:1410px; height:870px;
     background-color:#CF0;
     margin: auto;
     overflow-y: auto;
@@ -125,5 +125,18 @@
         color: white;
         margin: 8px;
         float:right;
+        width: 339px !important;
+        height: 120px !important;
+        padding: 36px 78px !important;
+        background-color: #FF7C46 !important;
+        color: white !important; 
+        justify-content: center !important;
+        align-items: center !important; 
+        text-align: right !important;
+        font-family: Pretendard !important;
+        font-size: 40px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;  
     }
 </style>
