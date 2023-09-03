@@ -1,11 +1,14 @@
 <template>
 <div class="story">
     <img id="storyText" src="../../assets/StoryText.png">
-    <h1 v-if="load"> 생성중 </h1>
-    <p id="storyStartText">아띠가 {{ result.제목}} 이야기를 들려줄게요.</p>
-    <div class="rectangle"> {{result.서론}}</div>
-    <div class="rectangle"> {{result.본론}}</div>
-    <div class="rectangle"> {{result.결론}}</div>
+    <p v-if="!load" id="storyStartText">아띠가 재미있는 이야기를 들려줄게요.</p>
+    <p v-if="load" id="storyStartText">아띠가 {{ result.제목}} 이야기를 들려줄게요.</p>
+    <img v-if="load" src="../../assets/cute_atti.gif" class = "cute-atti">
+    <div v-if="!load">
+        <div class="rectangle"> {{result.서론}}</div>
+        <div class="rectangle"> {{result.본론}}</div>
+        <div class="rectangle"> {{result.결론}}</div>
+    </div>
 </div>
 </template>
 <script>
@@ -74,17 +77,21 @@ export default{
 }
 </script>
 <style>
-    .story {height: 1677px; background-color: #FF7C46;border: 0; margin: 0;}
+    .cute-atti{
+        height: 300px;
+        width: 300px;
+    }
+    .story {height: 1300px; background-color: #FF7C46;border: 0; margin: 0;}
     .story #storyStartText {
         color: var(--text-dark-400, rgba(255, 255, 255, 0.70));
         text-align: center;
         font-family: Pretendard;
-        font-size: 36px;
+        font-size: 30px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        margin-top: 32px; margin-bottom: 128px;
+        margin-top: 32px; margin-bottom: 60px;
     }    
-    .story #storyText {width: 842px; margin-top: 184px;}
-    .story .rectangle {width: 1410px; height: 297px; background-color: #FEF8F1; margin: auto; margin-top: 60px; border-radius: 60px;}
+    .story #storyText {width: 650px; margin-top: 184px;}
+    .story .rectangle {width: 1100px; height: 230px; background-color: #FEF8F1; margin: auto; margin-top: 60px; border-radius: 70px;}
 </style>
