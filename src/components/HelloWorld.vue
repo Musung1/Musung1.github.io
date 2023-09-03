@@ -12,7 +12,7 @@
       <MyChips @send-data="getKeyword"/>
     </div>
     <MyStoryVue id= "myStory" @send-data="getMessages" :keyword="keyword" @scroll="myScroll"/>
-    <button id="scrollButton" @click="scrollToMyConversation">스크롤하기</button>
+    <div ref="myComponent"></div>
     <div id= "myConversation" class="talk">
       <img id="talkText1" src="../assets/TalkText1.png">
       <img id="talkText2" src="../assets/TalkText2.png">
@@ -30,11 +30,28 @@ import MyConversation from './converstaion/MyConverstaion.vue';
 import ActionChip from './converstaion/ActionChip.vue'
 
 export default{
+  mounted() {
+    // Intersection Observer 객체 생성
+    const options = {
+      root: null, // 기본적으로 viewport를 루트로 사용
+      rootMargin: "0px", // 루트 요소와 target 요소 사이의 마진
+      threshold: 0.5, // 타겟이 루트와 얼마나 교차해야 하는지를 나타내는 값 (0부터 1까지)
+    };
+
+    this.observer = new IntersectionObserver(this.handleIntersection, options);
+
+    // 특정 컴포넌트(ref) 관찰 시작
+    const componentRef = this.$refs.myComponent;
+    if (componentRef) {
+      this.observer.observe(componentRef);
+    }
+  },
     data(){
         return{
             keyword:"",
             messages:{},
-            isEnd: false
+            isEnd: false,
+            observer: null
         }
     },
     watch:{
@@ -43,6 +60,21 @@ export default{
       },
     },
     methods:{
+      handleIntersection(entries) {
+      // entries 배열에 관찰 대상에 대한 정보가 포함됩니다.
+      // 여기서는 하나의 컴포넌트만 관찰하므로 entries[0]을 사용합니다.
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        // 컴포넌트가 화면에 나타났을 때 호출할 함수를 여기에 호출합니다.
+        this.callFunctionWhenComponentVisible();
+        // 관찰 중지 (원하는 동작을 수행한 후에 관찰 중지할 수 있습니다.)
+        //this.observer.unobserve(entry.target);
+      }
+    },
+    callFunctionWhenComponentVisible() {
+      this.scrollToMyConversation();
+      console.log("컴포넌트가 화면에 나타났습니다!");
+    },
       myScroll(){
         console.log("hello");
       },
@@ -68,7 +100,11 @@ export default{
       scrollToMyConversation(){
         const comp = document.getElementById("myConversation");
         if (comp) {
-          comp.scrollIntoView({ behavior: 'smooth',block: 'start'});
+          window.scrollTo({
+            top: comp.scrollHeight + 900,
+            block: 'start',
+            behavior:'smooth',
+          });
         }
       },
         getKeyword(data){
