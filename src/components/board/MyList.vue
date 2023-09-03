@@ -4,7 +4,7 @@
 	<div id="app">
     <div id="conversation-list">
       <!-- 대화방 리스트 -->
-      <div class="conversation" v-for="(conversation, index) in conversations" :key="index" @click="selectConversation(index)">
+      <div class="conversation" v-for="(conversation, index) in conversations" :key="index" :class="{ 'selected-conversation': index === selectedConversationIndex }" @click="selectConversation(index)">
 				<div class="conversation-info">
           <div class="conversation-title">{{ conversation.name }}</div>
           <div class="conversation-date">{{ conversation.createdAt }}</div>
@@ -60,7 +60,7 @@ export default {
 										] 
 				},
         { name: '편식하지 말자', createdAt: '2023년 8월 27일 (일) 14:13', messages: [{ text: '메시지 3', sender: 'me' }, { text: '메시지 4', sender: 'other' }] },
-				{ name: '쓰레기를 아무데나 버리지 말자', createdAt: '2023년 8월 26일 (토) 12:02', messages: [{ text: '메시지 5', sender: 'me' }, { text: '메시지 6', sender: 'other' }] },
+				{ name: '쓰레기를 버리지 말자', createdAt: '2023년 8월 26일 (토) 12:02', messages: [{ text: '메시지 5', sender: 'me' }, { text: '메시지 6', sender: 'other' }] },
 				{ name: '음식을 남기지 말자', createdAt: '2023년 8월 25일 (금) 08:53', messages: [{ text: '메시지 7', sender: 'me' }, { text: '메시지 8', sender: 'other' }] },
 				{ name: '횡단보도에서 뛰지 말자', createdAt: '2023년 8월 24일 (목) 18:32', messages: [{ text: '메시지 9', sender: 'me' }, { text: '메시지 10', sender: 'other' }] },
 				{ name: '인사를 잘하자', createdAt: '2023년 8월 23일 (수) 16:25', messages: [{ text: '메시지 11', sender: 'me' }, { text: '메시지 12', sender: 'other' }] },
@@ -70,11 +70,19 @@ export default {
         // 추가 대화방을 여기에 추가할 수 있습니다.
       ],
       selectedConversation: null,
+			selectedConversationIndex: 0
     };
+  },
+	created() {
+    // 페이지가 로드될 때 첫 번째 대화방을 선택하도록 초기화합니다.
+    if (this.conversations.length > 0) {
+      this.selectedConversation = this.conversations[0];
+    }
   },
   methods: {
     selectConversation(index) {
       this.selectedConversation = this.conversations[index];
+			this.selectedConversationIndex = index;
     },
   },
 };
@@ -99,6 +107,16 @@ export default {
   width: 852px;
   overflow-y: auto;
 	margin-left: 108px;
+}
+
+.selected-conversation {
+	background-color: #FF7C46 !important;
+}
+.selected-conversation .conversation-title {
+	color: white;
+}
+.selected-conversation .conversation-date {
+	color: white;
 }
 
 .conversation {
