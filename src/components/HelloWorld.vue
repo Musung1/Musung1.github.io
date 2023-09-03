@@ -89,7 +89,7 @@ export default{
 <style scoped>
   .intro {height: 1080px; background-image: url(".././assets/IntroBack.png");
     background-size: cover;}
-  .intro #introText {width: 1124px; margin-top: 311px;}
+  .intro #introText {width: 936px; margin-top: 311px;}
   
 
   .keyword {height: 933px; background-color: #FEF8F1;border: 0; margin: 0;}
