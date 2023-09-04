@@ -12,7 +12,7 @@
 </div>
 </template>
 <script>
-    import { openai} from '/Users/musung/Dev/AIHackathon/src/openai/oepnai.js'
+    import { openai} from '../oepnai.js'
     class Story{
         제목;
         서론;
@@ -112,4 +112,4 @@ export default{
         font-weight: 600;
         line-height: 56px;
     }
-</style>
+</style>../oepnai.js

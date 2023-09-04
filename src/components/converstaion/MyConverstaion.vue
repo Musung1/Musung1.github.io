@@ -25,7 +25,7 @@
     const ROLE_ASSISTANT = 'assistant';
 //onst ROLE_SYSTEM = 'system';
 const ROLE_USER = 'user';
-    import {openai} from '/Users/musung/Dev/AIHackathon/src/openai/oepnai.js'
+    import {openai} from '../oepnai.js'
     class Message {
         role;
         content;
