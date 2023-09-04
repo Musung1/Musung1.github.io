@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import MyHeader from './components/common/MyHeader'; //import 헤더 추가
+import MyHeader from '@/components/common/MyHeader'; //import 헤더 추가
 // import HelloWorld from './components/HelloWorld.vue'; 
-import MyFooter from './components/common/MyFooter'; //import 풋터 추가
+import MyFooter from '@/components/common/MyFooter'; //import 풋터 추가
 
 export default {
   name: 'App',
