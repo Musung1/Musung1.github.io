@@ -13,7 +13,7 @@
 </template>
 <script>
     import OpenAI from 'openai'
-    const apiKey = "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"
+    const apiKey = process.env.VUE_APP_API_KEY
     const openai = new OpenAI({
         apiKey: apiKey, // defaults to process.env["OPENAI_API_KEY"]
         dangerouslyAllowBrowser: true,

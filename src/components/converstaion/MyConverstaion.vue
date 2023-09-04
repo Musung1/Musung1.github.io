@@ -26,7 +26,7 @@
     const ROLE_ASSISTANT = 'assistant';
     //onst ROLE_SYSTEM = 'system';
     const ROLE_USER = 'user';
-    const apiKey = "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"
+    const apiKey = process.env.VUE_APP_API_KEY
     const openai = new OpenAI({
         apiKey: apiKey,
         dangerouslyAllowBrowser: true,
@@ -229,7 +229,7 @@
 .myInput {
     width: 552px;
     height: 80px;
-    font-size: 32px;
+    font-size: 35px;
     color: white;
     margin-left: 80px;
     margin-right: 48px;
