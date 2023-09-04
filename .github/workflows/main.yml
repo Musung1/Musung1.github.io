@@ -40,5 +40,5 @@ jobs:
       - name: GitHub Pages에 배포
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./dist  # Vue.js 프로젝트의 빌드된 파일 경로로 변경
