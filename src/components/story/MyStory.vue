@@ -12,12 +12,7 @@
 </div>
 </template>
 <script>
-    import OpenAI from 'openai'
-    const apiKey = process.env.VUE_APP_API_KEY
-    const openai = new OpenAI({
-        apiKey: apiKey, // defaults to process.env["OPENAI_API_KEY"]
-        dangerouslyAllowBrowser: true,
-    });
+    import { openai} from '/Users/musung/Dev/AIHackathon/src/openai/oepnai.js'
     class Story{
         제목;
         서론;

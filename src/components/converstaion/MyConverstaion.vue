@@ -22,15 +22,10 @@
 <script>
     import MyChatBubble from './MyChatBubble.vue';
     import SysChatBubble from './SysChatBubble.vue';
-    import OpenAI from 'openai';
     const ROLE_ASSISTANT = 'assistant';
-    //onst ROLE_SYSTEM = 'system';
-    const ROLE_USER = 'user';
-    const apiKey = process.env.VUE_APP_API_KEY
-    const openai = new OpenAI({
-        apiKey: apiKey,
-        dangerouslyAllowBrowser: true,
-    });
+//onst ROLE_SYSTEM = 'system';
+const ROLE_USER = 'user';
+    import {openai} from '/Users/musung/Dev/AIHackathon/src/openai/oepnai.js'
     class Message {
         role;
         content;
